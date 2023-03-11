@@ -14,11 +14,16 @@ const displayHeading = function (heading) {
   headingEl.textContent = heading;
 };
 
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
 //DOM Manipulation
 submit.addEventListener('click', function () {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  let input = Number(document.querySelector('.input').value);
+  const input = Number(document.querySelector('.input').value);
 
   if (!input) {
     displayMessage('Input your age');
@@ -148,10 +153,7 @@ submit.addEventListener('click', function () {
   }
 });
 
-btnclose.addEventListener('click', function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-});
+btnclose.addEventListener('click', closeModal);
 // input.addEventListener('keypress', function () {
 //   document.querySelector('.input').style.width = '50%';
 // });
